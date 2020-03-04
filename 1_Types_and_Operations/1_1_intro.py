@@ -1,7 +1,7 @@
-# NUMBERS ############################################################
+# NUMBERS ----------------------------------------------------------------------------------
 
-import math   # module for standard math operations
 import cmath  # module for operations with complex numbers
+import math  # module for standard math operations
 
 a = 7
 b = 2
@@ -39,4 +39,24 @@ For a complete list of math functions and constants read:
 https://docs.python.org/3/library/math.html
 https://docs.python.org/3/library/cmath.html
 '''
+import random  # module for random number generation and random selection
 
+random.seed()  # initialize the random number generator
+
+dice = [1, 2, 3, 4, 5, 6]
+count = [0, 0, 0, 0, 0, 0]
+
+for roll in range(100):
+    face = random.choice(dice)
+    count[face - 1] += 1
+
+dice_count = [(d, c) for d, c in zip(dice, count)]
+
+for c in range(len(dice_count)):
+    print(f"#{dice_count[c][0]} rolled {dice_count[c][1]} times ")
+
+'''
+Warning The pseudo-random generators of the random module should not be used 
+for security purposes. For security or cryptographic uses, see the 'secrets' module.
+Complete reference at https://docs.python.org/3/library/random.html
+'''
