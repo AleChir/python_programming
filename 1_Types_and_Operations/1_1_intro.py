@@ -96,3 +96,44 @@ WARNING: The pseudo-random generators of the random module should not be used
 for security purposes. For security or cryptographic uses, see the 'secrets' module.
 Complete reference at https://docs.python.org/3/library/random.html
 '''
+
+# STRINGS ----------------------------------------------------------------------------------
+
+S = 'Spam'
+
+print(f"STRING = {S}, LENGTH = {len(S)}")
+print(f"S[0] = {S[0]}, S[1] = {S[1]}, S[2] = {S[2]}, S[3] = {S[3]}")
+print(f"S[-1] = {S[-1]}, S[-2] = {S[-2]}, S[-3] = {S[-3]}, S[-4] = {S[-4]}")
+print("---------------------------------------------------")
+
+name = input("Enter your name (3-20 char):")
+
+while len(name) > 20 or len(name) < 3:
+    name = input("Enter a valid name:")
+
+surname = input("Enter your surname (3-20 char):")
+
+while len(surname) > 20 or len(surname) < 3:
+    surname = input("Enter a valid surname:")
+
+name_up = name.upper()
+name_double = name * 2
+name_surname = name + surname
+nickname = name[:3] + '_' + surname[:3]
+surname_middle = surname[1:-1]
+
+print(f"NAME = {name}\nSURNAME = {surname}")
+print(f"NAME * 2 = {name_double}")
+print(f"NAME + SURNAME = {name_surname}")
+print(f"SURNAME MIDDLE = {surname_middle}")
+print(f"NICKNAME = {nickname}")
+print("---------------------------------------------------")
+
+phone_num = '+39 011 13987456'
+country_code = phone_num[:3]
+prefix = phone_num[4:7]
+num = phone_num[8:]
+print(f"PHONE NUMBER: {phone_num}")
+print(f"COUNTRY CODE: {country_code}")
+print(f"PREFIX: {prefix}")
+print(f"NUMBER: {num}")
