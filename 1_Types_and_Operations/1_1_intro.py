@@ -137,3 +137,11 @@ print(f"PHONE NUMBER: {phone_num}")
 print(f"COUNTRY CODE: {country_code}")
 print(f"PREFIX: {prefix}")
 print(f"NUMBER: {num}")
+
+'''
+Strings type objects are immutable. The following assignment would rise an exception:
+S = 'spam'
+S[0] = 'E'
+The correct way to perform this operation is:
+S = 'E' + S[1:]
+'''
