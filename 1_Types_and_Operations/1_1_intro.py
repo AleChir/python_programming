@@ -137,6 +137,23 @@ print(f"PHONE NUMBER: {phone_num}")
 print(f"COUNTRY CODE: {country_code}")
 print(f"PREFIX: {prefix}")
 print(f"NUMBER: {num}")
+print("---------------------------------------------------")
+
+fields = ['NAME', 'SURNAME', 'AGE', 'JOB']
+profile1 = 'John, Smith, 45, Plumber'
+profile2 = 'Alice, Wonder, 32, Engineer'
+profile3 = 'Mario, Rossi, 65, Musician'
+p1_lst = profile1.split(',')
+p2_lst = profile2.split(',')
+p3_lst = profile3.split(',')
+database = [p1_lst, p2_lst, p3_lst]
+print(database)
+
+for record in database:
+    for f,v in zip(fields, record):
+        print(f"{f} = {v.lstrip()}")   # lstrip()/rstrip() methods remove whitespaces on left/right of the string
+    print('\n')
+
 
 '''
 Strings type objects are immutable. The following assignment would rise an exception:
