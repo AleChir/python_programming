@@ -12,7 +12,7 @@ res4 = a ** b
 res5 = a / b  # Division always returns a float
 res6 = math.factorial(a)
 res7 = math.log(a, math.e)
-
+print("\n1)---------------------------------------------------")
 print(f"{a} + {b} = {res1}")
 print(f"{a} - {b} = {res2}")
 print(f"{a} * {b} = {res3}")
@@ -20,8 +20,8 @@ print(f"{a} ** {b} = {res4}")
 print(f"{a} / {b} = {res5}")
 print(f"{a}! = {res6}")
 print(f"ln({a}) = {res7}")
-print("---------------------------------------------------")
 
+print("\n2)---------------------------------------------------")
 rad = 2.5
 area = math.pi * (rad ** 2)
 
@@ -30,18 +30,17 @@ print(f"cos(π) = {math.cos(math.pi)}")
 print(f"e = {math.e}")
 print(f"∞ = {math.inf}")
 print(f"'Not a Number' = {math.nan}")
-print("---------------------------------------------------")
 
+print("\n3)---------------------------------------------------")
 z1 = complex(1.0, 1.0)
 z1_pol = cmath.polar(z1)
 print(f"z={z1}; |z| = {z1_pol[0]} , phase(z) = {z1_pol[1]} ")
-print("---------------------------------------------------")
 
-'''
-For a complete list of math functions and constants read:
-https://docs.python.org/3/library/math.html
-https://docs.python.org/3/library/cmath.html
-'''
+# For a complete list of math functions and constants read:
+# https://docs.python.org/3/library/math.html
+# https://docs.python.org/3/library/cmath.html
+
+print("\n4)---------------------------------------------------")
 import random  # module for random number generation and random selection
 
 random.seed()  # initialize the random number generator
@@ -57,8 +56,8 @@ dice_count = [(d, c) for d, c in zip(dice, count)]  # see 2_5 "list comprehensio
 
 for c in range(len(dice_count)):
     print(f"#{dice_count[c][0]} rolled {dice_count[c][1]} times")
-print("---------------------------------------------------")
 
+print("\n5)---------------------------------------------------")
 # monte-carlo estimation of pi
 inside = 0
 
@@ -70,8 +69,8 @@ for step in range(100000):
 
 pi_est = float(4 * inside / 100000)
 print(f"π estimation = {pi_est} ; error = {math.pi - pi_est}")
-print("---------------------------------------------------")
 
+print("\n6)---------------------------------------------------")
 # probabilistic distributions generation
 import matplotlib.pyplot as plt
 
@@ -91,11 +90,9 @@ plt.hist(samples_3, color='green', bins=100, alpha=0.5)
 plt.xlim(0, 5)
 plt.show()
 
-'''
-WARNING: The pseudo-random generators of the random module should not be used 
-for security purposes. For security or cryptographic uses, see the 'secrets' module.
-Complete reference at https://docs.python.org/3/library/random.html
-'''
+# WARNING: The pseudo-random generators of the random module should not be used
+# for security purposes. For security or cryptographic uses, see the 'secrets' module.
+# Complete reference at https://docs.python.org/3/library/random.html
 
 # STRINGS ----------------------------------------------------------------------------------
 
@@ -104,7 +101,13 @@ S = 'Spam'
 print(f"STRING = {S}, LENGTH = {len(S)}")
 print(f"S[0] = {S[0]}, S[1] = {S[1]}, S[2] = {S[2]}, S[3] = {S[3]}")
 print(f"S[-1] = {S[-1]}, S[-2] = {S[-2]}, S[-3] = {S[-3]}, S[-4] = {S[-4]}")
-print("---------------------------------------------------")
+
+print("\n7)---------------------------------------------------")
+#   Strings type objects are immutable. The following assignment would rise an exception:
+#   S = 'spam'
+#   S[0] = 'E'
+#   The correct way to perform this operation is:
+#   S = 'E' + S[1:]
 
 name = input("Enter your name (3-20 char):")
 
@@ -127,8 +130,8 @@ print(f"NAME * 2 = {name_double}")
 print(f"NAME + SURNAME = {name_surname}")
 print(f"SURNAME MIDDLE = {surname_middle}")
 print(f"NICKNAME = {nickname}")
-print("---------------------------------------------------")
 
+print("\n8)---------------------------------------------------")
 phone_num = '+39 011 13987456'
 country_code = phone_num[:3]
 prefix = phone_num[4:7]
@@ -137,8 +140,8 @@ print(f"PHONE NUMBER: {phone_num}")
 print(f"COUNTRY CODE: {country_code}")
 print(f"PREFIX: {prefix}")
 print(f"NUMBER: {num}")
-print("---------------------------------------------------")
 
+print("\n9)---------------------------------------------------")
 fields = ['NAME', 'SURNAME', 'AGE', 'JOB']
 profile1 = 'John, Smith, 45, Plumber'
 profile2 = 'Alice, Wonder, 32, Engineer'
@@ -150,15 +153,23 @@ database = [p1_lst, p2_lst, p3_lst]
 print(database)
 
 for record in database:
-    for f,v in zip(fields, record):
-        print(f"{f} = {v.lstrip()}")   # lstrip()/rstrip() methods remove whitespaces on left/right of the string
-    print('\n')
+    print('_________________')
+    for f, v in zip(fields, record):
+        print(f"{f} = {v.lstrip()}")  # lstrip()/rstrip() methods remove whitespaces on left/right of the string
 
+print("\n10)---------------------------------------------------")
+code1 = 'MRT558966544'
+code2 = 'AHL-987_1554_44#'
+print(code1, code1.isalnum(), code1.replace('MRT', 'HKL'))
+print(code2, code2.isalnum(), code2[code2.find('-'):])
 
-'''
-Strings type objects are immutable. The following assignment would rise an exception:
-S = 'spam'
-S[0] = 'E'
-The correct way to perform this operation is:
-S = 'E' + S[1:]
-'''
+print("\n11)---------------------------------------------------")
+import re
+
+path = 'usr/home/desktop/notes.txt'
+path_lst = re.split('[/.]', path)
+print(path, '-->', path_lst)
+filename, extension = path_lst[-2:]
+print(f"FILENAME: {filename}\tEXTENSION: .{extension}")
+
+# STRINGS ----------------------------------------------------------------------------------
