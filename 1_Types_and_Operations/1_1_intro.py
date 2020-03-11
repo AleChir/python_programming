@@ -1,4 +1,6 @@
+############################################################################################
 # NUMBERS ----------------------------------------------------------------------------------
+############################################################################################
 
 import cmath  # module for operations with complex numbers
 import math  # module for standard math operations
@@ -94,7 +96,9 @@ plt.show()
 # for security purposes. For security or cryptographic uses, see the 'secrets' module.
 # Complete reference at https://docs.python.org/3/library/random.html
 
+############################################################################################
 # STRINGS ----------------------------------------------------------------------------------
+############################################################################################
 
 S = 'Spam'
 
@@ -172,4 +176,115 @@ print(path, '-->', path_lst)
 filename, extension = path_lst[-2:]
 print(f"FILENAME: {filename}\tEXTENSION: .{extension}")
 
-# STRINGS ----------------------------------------------------------------------------------
+############################################################################################
+# LISTS ------------------------------------------------------------------------------------
+############################################################################################
+
+print("\n12)---------------------------------------------------")
+prof = ['Mark', 'Smith', 48, 35500]
+print(f"prof = {prof}\t type = {type(prof)}\t len = {len(prof)}")
+
+prof[0] = 'John'  # lists are mutable collections of objects supporting in-place changes
+prof + ['Plumber']  # + and * operators do not change the original list, if not specified
+print(f"prof = {prof}\t type = {type(prof)}\t len = {len(prof)}")
+
+prof.append('Plumber')  # the 'append' and 'pop' method changes the original list
+print(f"prof = {prof}\t type = {type(prof)}\t len = {len(prof)}")
+prof.pop()
+print(f"prof = {prof}\t type = {type(prof)}\t len = {len(prof)}")
+
+print("\n13)---------------------------------------------------")
+cities = ['Rome', 'London', 'Paris', 'New York', 'Amsterdam', 'Buenos Aires']
+print(cities)
+cities.sort()
+print(cities)
+cities.reverse()
+print(cities)
+
+print("\n14)---------------------------------------------------")
+
+hess = [[12.1, 4.2, 3.3],
+        [4.2, 8.3, 41.2],
+        [3.3, 41.2, 7.9]]
+
+fxy = hess[0][1]
+fxz = hess[0][2]
+fyx = hess[1][0]
+fyz = hess[1][2]
+fzx = hess[2][0]
+fzy = hess[2][1]
+
+for line in range(len(hess)):
+    print(hess[line])
+
+# for line in hess:
+#   print(line)
+
+if fxy == fyx and fxz == fzx and fyz == fzy:
+    print(f"The matrix is symmetric")
+
+print("\n15)---------------------------------------------------")
+
+M = [[5, 2, 1],
+     [6, 9, 7],
+     [4, 0, 3]]
+
+col0 = [row[0] for row in M]  # list comprehension
+col1 = [row[1] for row in M]
+col2 = [row[2] for row in M]
+
+M_t = [col0,
+       col1,
+       col2]
+
+print("\nM =")
+for line in M:  # iteration on a list
+    print(line)
+
+print("\nM_t =")
+for line in M_t:
+    print(line)
+
+diag = [M[i][i] for i in range(len(M))]
+print(f"\ndiagonal elements :\t{diag}")
+
+# extracts even numbers from the first column
+even = [row[0] for row in M if row[0] % 2 == 0]
+print(f"\neven elements in the first column :\t{even}")
+
+# squared elements of the second column
+squared = [row[1] ** 2 for row in M]
+print(f"\nsquared elements of the second column:\t{squared}")
+
+print("\n16)---------------------------------------------------")
+val_square_cube = [[x, x ** 2, x ** 3] for x in range(5)]
+print(val_square_cube)
+
+print("\n17)---------------------------------------------------")
+mtx = [[0.5, 3.6, 1.7],
+       [6.7, 9.5, 7.8],
+       [8.9, 0.9, 5.7],
+       [3.6, 0.5, 1.7]]
+
+sum_gen = (sum(row) for row in mtx)  # enclosing a comprehension statements in "()" create a generator
+print(sum_gen)
+print(next(sum_gen))
+print(next(sum_gen))
+print(next(sum_gen))
+print(next(sum_gen))
+# print(next(sum_gen))
+# calling next() out of bounds will rise a StopIteration exception
+
+sum_list = list(map(sum, mtx))
+print(sum_list)
+# the map(func, seq) built-in calls "func" on each item in "seq". Equivalent to:
+# sum_list = []
+# for item in mtx:
+#   sum_l.append(sum(item))
+# print(sum_l)
+
+sum_set = {sum(row) for row in mtx}
+print(sum_set)
+sum_dict = {i: sum(mtx[i]) for i in range(len(mtx))}
+print(sum_dict)
+# comprehension syntax can also be used yo create sets and dictionaries
