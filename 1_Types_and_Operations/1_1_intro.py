@@ -288,3 +288,66 @@ print(sum_set)
 sum_dict = {i: sum(mtx[i]) for i in range(len(mtx))}
 print(sum_dict)
 # comprehension syntax can also be used yo create sets and dictionaries
+
+
+############################################################################################
+# DICTIONARIES -----------------------------------------------------------------------------
+############################################################################################
+
+# There are different ways to create a dictionary
+print("\n18)---------------------------------------------------")
+
+cart = []
+
+item1 = {'NAME': 'Ham', 'PRICE': 3.99, 'CODE': '1564775', 'QUANTITY': 5}
+cart.append(item1)
+
+item2 = {}
+item2['NAME'] = 'Soda'
+item2['PRICE'] = 1.99
+item2['CODE'] = '7458932'
+item2['QUANTITY'] = 2
+cart.append(item2)
+
+item3 = dict(NAME='Beer', PRICE=2.59, CODE='1259036', QUANTITY=6)
+cart.append(item3)
+
+key_list = ['NAME', 'PRICE', 'CODE', 'QUANTITY']
+item4 = dict(zip(key_list, ['Juice', 4.39, '9102004', 3]))
+cart.append(item4)
+
+total = 0
+for obj in cart:
+    print("---------------")
+    total += obj['PRICE'] * obj['QUANTITY']
+    for key, val in obj.items():
+        if key == 'PRICE':
+            print(f"{key} :\t€ {val}")
+        else:
+            print(f"{key} :\t{val}")
+
+print("---------------")
+print(f"TOTAL = {total}")
+
+print("\n19)---------------------------------------------------")
+record = {'Name': 'Jane', 'Surname': 'Doe', 'Age': 27, 'Sex': 'F', 'Job': ['Engineer', 'Manager']}
+
+for k, v in record.items():
+    print(f"{k}:    {v}")
+
+if not 'Married' in record:
+    print("Marital status not available")
+print("---------------")
+
+record['Married'] = True
+record['Job'].append('Director')
+record.pop('Name')
+record.pop('Surname')
+record['Full Name'] = {'First': 'Jane', 'Last': 'Doe'}
+record['Full Name']['First'] = 'Mary Jane'
+
+for k, v in record.items():
+    print(f"{k}: {v}")
+
+if not 'Married' in record:
+    print("Marital status not available")
